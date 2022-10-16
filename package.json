@@ -8,7 +8,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .ts && next lint",
     "prettier-format": "prettier --config .prettierrc src/**/*.ts --write",
@@ -24,9 +24,11 @@
     "@sanity/client": "^3.4.1",
     "axios": "^1.1.2",
     "next": "12.2.5",
+    "next-auth": "^4.14.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "zustand": "^4.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",

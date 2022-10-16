@@ -11,7 +11,9 @@ const Layout: React.FC<ILayout> = ({ children }) => {
       <Navbar />
       <div className="flex">
         <Sidebar />
-        <main>{children}</main>
+        <main className="w-full bg-gray-50 min-h-screen h-full">
+          {children}
+        </main>
       </div>
     </>
   );
