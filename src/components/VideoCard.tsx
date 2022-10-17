@@ -14,7 +14,7 @@ const VideoCard: React.FC<IVideoCard> = ({ video }) => {
       <div className="w-250 lg:w-550 flex flex-col gap-4 bg-white border-2 border-gray-200 rounded-lg p-4">
         <div className="flex justify-between">
           <div className="flex items-start gap-4">
-            <Link href={`/${video.postedBy.userName}`}>
+            <Link href={`/${video.postedBy.name}`}>
               <div className="w-full cursor-pointer flex gap-4">
                 <div className="w-11 h-11">
                   <Image
@@ -22,19 +22,19 @@ const VideoCard: React.FC<IVideoCard> = ({ video }) => {
                     width="60px"
                     height="60px"
                     layout="responsive"
-                    alt={video.postedBy.userName}
+                    alt={video.postedBy.name}
                     className="rounded-full"
                   />
                 </div>
                 <div>
                   <div className="flex items-center gap-1">
                     <p className="text-base leading-none font-semibold">
-                      {video.postedBy.userName}
+                      {video.postedBy.name}
                     </p>
                     <HiBadgeCheck className="text-lg text-primary-red" />
                   </div>
                   <span className="text-sm leading-none text-gray-400">
-                    @{video.postedBy.userName}
+                    @{video.postedBy.username}
                   </span>
                 </div>
               </div>

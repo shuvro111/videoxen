@@ -1,5 +1,5 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { FaGamepad, FaMedal, FaPaw } from 'react-icons/fa';
+import { BsCode } from 'react-icons/bs';
+import { FaGamepad, FaMedal, FaPaw, FaTheaterMasks } from 'react-icons/fa';
 import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
 
 export const topics = [
@@ -9,7 +9,7 @@ export const topics = [
   },
   {
     name: 'comedy',
-    icon: <BsEmojiSunglasses />,
+    icon: <FaTheaterMasks />,
   },
   {
     name: 'gaming',

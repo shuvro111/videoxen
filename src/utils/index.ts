@@ -1,30 +1,16 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import axios from 'axios';
-
+import { User } from 'next-auth';
+import { client } from './client';
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
-export const createOrGetUser = async (response: any, addUser: any) => {
-  const base64Url = response.credential.split('.')[1];
-  const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  const jsonPayload = decodeURIComponent(
-    atob(base64)
-      .split('')
-      .map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-      })
-      .join('')
-  );
+export const createOrGetUser = async (user: User) => {
+  const { id, name, email, image } = user;
 
-  const { name, picture, sub } = JSON.parse(jsonPayload);
-
-  const user = {
-    _id: sub,
+  const newUser = {
+    _id: id,
     _type: 'user',
-    userName: name,
-    image: picture,
+    name,
+    email,
+    image,
   };
-
-  addUser(user);
-
-  await axios.post(`${BASE_URL}/api/auth`, user);
+  client.createIfNotExists(newUser);
 };
