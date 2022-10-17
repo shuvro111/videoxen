@@ -11,6 +11,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === 'GET') {
     const query = allPostsQuery();
     const data = await client.fetch(query);
+    console.log(data);
     res.status(200).json({ videos: data });
   }
 };
