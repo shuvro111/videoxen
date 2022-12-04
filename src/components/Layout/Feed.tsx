@@ -8,7 +8,7 @@ interface IFeed {
 
 const Feed: React.FC<IFeed> = ({ videos }) => {
   return (
-    <div className="w-full h-full flex flex-col gap-10">
+    <div className="w-full h-full flex flex-col gap-10 mt-10">
       {videos.length ? (
         videos.map((video) => <VideoCard key={video._id} video={video} />)
       ) : (

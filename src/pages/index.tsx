@@ -1,5 +1,5 @@
 import axios from 'axios';
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import { Video } from '../../types/types';
 import Feed from '../components/Layout/Feed';
@@ -9,7 +9,6 @@ interface IHome {
 }
 
 const Home: NextPage<IHome> = ({ videos }) => {
-  // videos = [];
   return (
     <>
       <Head>
@@ -24,7 +23,7 @@ const Home: NextPage<IHome> = ({ videos }) => {
 
 export default Home;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const { data } = await axios.get('http://localhost:3000/api/post');
   return {
     props: {
