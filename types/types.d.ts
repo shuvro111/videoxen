@@ -14,21 +14,23 @@ export interface Video {
     image: string;
   };
   likes: {
-    postedBy: {
-      _id: string;
-      name: string;
-      username: string;
-      image: string;
-    };
+    _key: string;
+    _ref: string;
   }[];
   comments: {
     comment: string;
     _key: string;
     postedBy: {
+      _id: string;
       _ref: string;
     };
   }[];
   userId: string;
+}
+
+export interface Like {
+  _key: string;
+  _ref: string;
 }
 
 export interface IUser {

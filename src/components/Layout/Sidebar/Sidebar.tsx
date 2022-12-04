@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
     'w-full flex gap-2 items-center justify-center lg:justify-start my-3 cursor-pointer font-semibold hover:text-primary-red text-primary-red';
 
   return (
-    <div className="w-14 lg:w-56 xl:w-400 lg:px-6 border-r-2 border-gray-100">
+    <div className="w-14 lg:w-8/12 lg:pr-6 flex lg:justify-between">
       {/* menu toggle button  */}
       <div
         className="lg:hidden flex justify-center mt-2 text-xl"

@@ -2,6 +2,7 @@ import { SessionProvider } from 'next-auth/react';
 import type { AppProps } from 'next/app';
 import { useEffect, useState } from 'react';
 import Layout from '../components/Layout/Layout';
+import { AllUsersProvider } from '../contexts/AllUsersContext';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -15,9 +16,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <SessionProvider>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <AllUsersProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </AllUsersProvider>
     </SessionProvider>
   );
 }
