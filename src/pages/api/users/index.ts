@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { IUser } from '../../../types/types';
-import { client } from '../../utils/client';
-import { allUsersQuery } from '../../utils/queries';
+import { IUser } from '../../../../types/types';
+import { client } from '../../../utils/client';
+import { allUsersQuery } from '../../../utils/queries';
 
 type Data = {
   users?: IUser[];

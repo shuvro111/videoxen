@@ -12,7 +12,7 @@ const user: IUser = {
 
 const AllUsersContext = createContext<IUser[]>([user]);
 
-const fethAllUsers = async () => {
+const fetchAllUsers = async () => {
   const response = await axios.get(`/api/users`);
   return response.data.users;
 };
@@ -25,7 +25,7 @@ export const AllUsersProvider = ({
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fethAllUsers().then((users) => setUsers(users));
+    fetchAllUsers().then((users) => setUsers(users));
   }, []);
 
   return (
