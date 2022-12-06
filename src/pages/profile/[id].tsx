@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { HiBadgeCheck } from 'react-icons/hi';
 import { IUser, Video } from '../../../types/types';
+import NoResult from '../../components/NoResult';
 
 const ProfilePage = () => {
   const router = useRouter();
@@ -16,36 +17,33 @@ const ProfilePage = () => {
     username: '',
   });
 
-  const [videos, setVideos] = useState<Video[]>([]);
-
-  const fetchAllVideos = async () => {
-    const { data } = await axios.get('http://localhost:3000/api/post');
-    return data.videos;
-  };
+  const [userVideos, setUserVideos] = useState<Video[]>([]);
+  const [userLikedVideos, setUserLikedVideos] = useState<Video[]>([]);
+  const [activeTab, setActiveTab] = useState('videos');
 
   const fetchSingleUser = async (id: string) => {
     const response = await axios.get(`/api/users/${id}`);
-    return response.data.user[0];
+    return response.data;
   };
 
   useEffect(() => {
     if (router.query) {
       fetchSingleUser(router.query.id as string)
-        .then((user) => setUser(user))
+        .then((res) => {
+          setUser(res.user[0]);
+          setUserVideos(res.userVideos);
+          setUserLikedVideos(res.userLikedVideos);
+        })
         .catch();
     }
-
-    fetchAllVideos()
-      .then((videos) => setVideos(videos))
-      .catch();
   }, [router.query]);
 
   return (
     <section className="w-full text-gray-600 body-font">
-      <div className="px-5 mx-auto flex flex-col">
+      <div className="px-5 mx-auto flex flex-col flex-wrap">
         <div className=" mx-auto">
-          <div className="flex flex-col sm:flex-row">
-            <div className="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+          <div className=" lg:flex-row flex-col sm:flex-row flex-wrap">
+            <div className="text-center sm:pr-8 sm:py-8">
               <div className="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-400">
                 {/* <svg
                   fill="none"
@@ -68,12 +66,14 @@ const ProfilePage = () => {
                 />
               </div>
               <div className="flex flex-col items-center text-center justify-center">
-                <h2 className="font-medium title-font mt-4 text-gray-900 text-lg flex items-center gap-x-1">
+                <h2
+                  className={`font-medium title-font mt-4 text-lg flex items-center gap-x-1`}
+                >
                   {user?.name}
                   <HiBadgeCheck className="text-lg text-primary-red" />
                 </h2>
                 <span className="text-sm leading-none text-gray-400">
-                  @{user.username}
+                  @{user?.username}
                 </span>
                 <div className="w-12 h-1 bg-primary-red rounded mt-2 mb-4"></div>
                 <button
@@ -84,9 +84,9 @@ const ProfilePage = () => {
                 </button>
               </div>
             </div>
-            <div className="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="text-primary-red inline-flex items-center">
-                Biography
+            <div className="sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
+              <p className="text-primary-red inline-flex items-center w-full">
+                <span className="text-center lg:text-left">Biography</span>
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -109,19 +109,62 @@ const ProfilePage = () => {
             </div>
           </div>
           {/* Feed */}
-          <div className="flex flex-col items-center w-full ml-20">
-            <h4 className="text-2xl font-semibold mt-10 pb-2 border-b">Feed</h4>
-            <div className="grid grid-cols-3 gap-4 mt-10">
-              {videos.map((video) => (
-                <Link href={`/video/${video._id}`} key={video._id}>
-                  <video
-                    src={video.video.asset.url}
-                    width="100%"
-                    className="aspect-auto h-60 bg-black cursor-pointer"
-                  />
-                </Link>
-              ))}
+          <div className="flex flex-col items-center w-full">
+            {/* Tabs */}
+            <div className="flex gap-x-4">
+              <h4
+                className={`text-lg mt-10 pb-2 cursor-pointer ${
+                  activeTab === 'videos'
+                    ? 'text-primary-red border-primary-red border-b'
+                    : 'text-gray-900 border-b'
+                }`}
+                onClick={() => setActiveTab('videos')}
+              >
+                Videos
+              </h4>
+              <h4
+                className={`text-lg mt-10 pb-2 border-b cursor-pointer ${
+                  activeTab === 'liked'
+                    ? 'text-primary-red border-primary-red border-b'
+                    : 'text-gray-900 border-b'
+                }`}
+                onClick={() => setActiveTab('liked')}
+              >
+                Liked
+              </h4>
             </div>
+
+            {activeTab === 'videos' ? (
+              userVideos?.length > 0 ? (
+                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10">
+                  {userVideos.map((video) => (
+                    <Link href={`/video/${video._id}`} key={video._id}>
+                      <video
+                        src={video.video.asset.url}
+                        width="100%"
+                        className="aspect-auto h-60 bg-black cursor-pointer"
+                      />
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <NoResult text={'No Videos Posted By The User'} />
+              )
+            ) : userLikedVideos?.length > 0 ? (
+              <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 mt-10">
+                {userLikedVideos.map((video) => (
+                  <Link href={`/video/${video._id}`} key={video._id}>
+                    <video
+                      src={video.video.asset.url}
+                      width="100%"
+                      className="aspect-auto h-60 bg-black cursor-pointer"
+                    />
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <NoResult text={'No Videos Liked By The User'} />
+            )}
           </div>
         </div>
       </div>

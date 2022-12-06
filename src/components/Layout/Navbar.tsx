@@ -1,6 +1,7 @@
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { HiLogout, HiOutlineSearch, HiPlus } from 'react-icons/hi';
@@ -12,10 +13,15 @@ import Logo from '../../public/tiktik-logo.png';
 const Navbar: React.FC = () => {
   const { data: session, status } = useSession();
   const [query, setQuery] = useState('');
+  const router = useRouter();
 
   if (status === 'loading') {
     return <div>Loading...</div>;
   }
+
+  const handleSearch = () => {
+    router.push(`/search/${query}`);
+  };
 
   return (
     <div className="lg:w-3/5 lg:m-auto flex justify-between items-center border-b-2 border-gray-200 py-4">
@@ -38,7 +44,10 @@ const Navbar: React.FC = () => {
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search..."
         />
-        <HiOutlineSearch className="text-gray-400" />
+        <HiOutlineSearch
+          className="text-gray-400 cursor-pointer"
+          onClick={handleSearch}
+        />
       </div>
 
       {!status && <p>loading...</p>}

@@ -24,7 +24,7 @@ const Sidebar: React.FC = () => {
       {/* sidebar  */}
       {showSidebar && (
         <div className="flex flex-col lg:gap-2 items-center lg:items-start ">
-          <Link href="/?topic=for-you">
+          <Link href="/">
             <div className={activeStyles}>
               <p className=" text-2xl">
                 <HiHome />

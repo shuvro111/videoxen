@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { HiBadgeCheck, HiOutlineDotsHorizontal } from 'react-icons/hi';
+import { HiChatBubbleLeftRight } from 'react-icons/hi2';
 import { Video } from '../../types/types';
 import Likes from './Layout/Likes';
 // import { HiVolumeUp, HiVolumeOff, HiPlay, HiPause, HiBadgeCheck } from "react-icons/hi";
@@ -33,11 +34,14 @@ const VideoCard: React.FC<IVideoCard> = ({ video: _video }) => {
   };
 
   return (
-    <div className="w-full flex justify-end">
+    <div
+      className="w-full flex justify-end"
+      // onClick={() => router.push(`/video/${video._id}`)}
+    >
       <div className="w-250 lg:w-550 flex flex-col gap-4 bg-white border-2 border-gray-200 rounded-lg p-4">
         <div className="flex justify-between">
           <div className="flex items-start gap-4">
-            <Link href={`/${video.postedBy.name}`}>
+            <Link href={`/${video.postedBy._id}`}>
               <div className="w-full cursor-pointer flex gap-4">
                 <div className="w-11 h-11">
                   <Image
@@ -79,11 +83,18 @@ const VideoCard: React.FC<IVideoCard> = ({ video: _video }) => {
             controls
           ></video>
         </Link>
-        <Likes
-          likes={video.likes}
-          handleLike={() => handleLike(true)}
-          handleDislike={() => handleLike(false)}
-        />
+        <div className="flex gap-x-8">
+          <Likes
+            likes={video.likes}
+            handleLike={() => handleLike(true)}
+            handleDislike={() => handleLike(false)}
+          />
+          <div className="flex items-center gap-2">
+            <HiChatBubbleLeftRight className="text-xl text-gray-900" />
+
+            <span>{video?.comments?.length || 'No'} Comments</span>
+          </div>
+        </div>
       </div>
     </div>
   );
