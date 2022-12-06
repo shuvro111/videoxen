@@ -9,6 +9,7 @@ import { HiBadgeCheck, HiX } from 'react-icons/hi';
 import { HiChatBubbleLeftRight } from 'react-icons/hi2';
 import { Video } from '../../../types/types';
 import CommentForm from '../../components/CommentForm';
+import Like from '../../components/Layout/Likes';
 import { useAllUsers } from '../../contexts/AllUsersContext';
 import { BASE_URL } from '../../utils';
 
@@ -19,6 +20,20 @@ const VideoDetails: React.FC<{ post: Video }> = ({ post }) => {
   const users = useAllUsers();
 
   const handleClose = () => router.back();
+
+  const handleLike = async (like: boolean) => {
+    if (!session?.user) {
+      router.push('/login');
+    } else {
+      const res = await axios.put(`/api/post/like`, {
+        postId: video._id,
+        userId: session?.user.id,
+        like,
+      });
+
+      setVideo((prev) => ({ ...prev, likes: res.data.video.likes }));
+    }
+  };
 
   const addComment = async (comment: string) => {
     const response = await axios.put(`/api/post/${video._id}`, {
@@ -78,10 +93,20 @@ const VideoDetails: React.FC<{ post: Video }> = ({ post }) => {
               <HiX className="cursor-pointer text-2xl" onClick={handleClose} />
             </div>
             <p>{video.caption}</p>
-            <div className="h-full flex flex-col gap-y-4">
+
+            <Like
+              handleDislike={() => handleLike(false)}
+              handleLike={() => handleLike(true)}
+              likes={video.likes}
+            />
+
+            <div className="h-full flex flex-col gap-y-4 mt-4">
               {video.comments ? (
                 video.comments.map((comment) => (
-                  <div className="p-2 shadow rounded" key={comment._key}>
+                  <div
+                    className="p-4 shadow-sm border border-gray-200 shadow-gray-50 rounded"
+                    key={comment._key}
+                  >
                     <p className="font-semibold text-sm">
                       {
                         users.filter(

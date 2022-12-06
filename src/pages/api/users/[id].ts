@@ -1,19 +1,32 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { IUser } from '../../../../types/types';
+import { IUser, Video } from '../../../../types/types';
 import { client } from '../../../utils/client';
-import { singleUserQuery } from '../../../utils/queries';
+import {
+  singleUserQuery,
+  userCreatedPostsQuery,
+  userLikedPostsQuery,
+} from '../../../utils/queries';
 
 type Data = {
   user?: IUser;
+  userVideos: Video[];
+  userLikedVideos: Video[];
   message?: string;
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
   if (req.method === 'GET') {
-    if (req.query.id) {
-      const query = singleUserQuery(req.query.id as string);
-      const data = await client.fetch(query);
-      res.status(200).json({ user: data });
+    const { id } = req.query;
+    if (id) {
+      const userquery = singleUserQuery(id as string);
+      const userVideosQuery = userCreatedPostsQuery(id as string);
+      const userLikedVideosQuery = userLikedPostsQuery(id as string);
+
+      const user = await client.fetch(userquery);
+      const userVideos = await client.fetch(userVideosQuery);
+      const userLikedVideos = await client.fetch(userLikedVideosQuery);
+
+      res.status(200).json({ user, userVideos, userLikedVideos });
     }
   }
 };

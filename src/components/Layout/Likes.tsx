@@ -22,7 +22,7 @@ const Like = ({ likes, handleLike, handleDislike }: ILikes) => {
   }, [filterLikes, likes]);
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 z-10">
       {likedByCurrentUser ? (
         <HiHeart
           className="text-2xl cursor-pointer"
