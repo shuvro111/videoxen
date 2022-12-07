@@ -35,7 +35,7 @@ const SearchResults = () => {
         })
         .catch();
     }
-  }, [router.query]);
+  }, [allUsers, router.query]);
 
   return (
     <section className="w-full text-gray-600 body-font">

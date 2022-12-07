@@ -12,11 +12,11 @@ export default NextAuth({
   ],
   secret: process.env.NEXTAUTH_SECRET,
   callbacks: {
-    async signIn({ user }) {
+    async signIn() {
       // console.log({ user, account, profile, email, credentials });
       return true;
     },
-    async jwt({ token, user, account, profile }) {
+    async jwt({ token, user }) {
       // Persist the OAuth access_token and or the user id to the token right after signin
       if (user) {
         const result = await createOrGetUser(user);
@@ -24,11 +24,11 @@ export default NextAuth({
       }
       return token;
     },
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       // Send properties to the client, like an access_token and user id from a provider.
       if (token) {
-        session.user.id = token.id;
-        session.user.username = token.username;
+        session.user.id = token.id as string;
+        session.user.username = token.username as string;
       }
       return session;
     },

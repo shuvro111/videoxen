@@ -1,3 +1,4 @@
+import { SanityDocument } from '@sanity/client';
 import { randomUUID } from 'crypto';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Video } from '../../../../types/types';
@@ -11,7 +12,7 @@ type Data = {
 
 const handler = async (
   req: NextApiRequest,
-  res: NextApiResponse<Data | any>
+  res: NextApiResponse<Data | SanityDocument<Record<string, unknown>>>
 ) => {
   if (req.method === 'GET') {
     const query = postDetailQuery(req.query.id as string);

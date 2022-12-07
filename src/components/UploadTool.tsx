@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // interface IUpload {
 // }
 
@@ -20,7 +21,7 @@ const initForm = {
 };
 
 const UploadTool: React.FC = () => {
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [videoAsset, setVideoAsset] = useState<
@@ -54,11 +55,10 @@ const UploadTool: React.FC = () => {
           filename: selectedFile?.name,
         })
         .then((data: SanityAssetDocument) => {
-          console.log(data);
           setVideoAsset(data);
           setLoading(false);
         })
-        .catch((err) => console.log(err));
+        .catch();
     } else {
       setLoading(false);
       setWrongFileType(true);
@@ -88,17 +88,16 @@ const UploadTool: React.FC = () => {
         topic: formValues.topic,
       };
 
-      await axios.post('/api/post', doc).then((res) => console.log(res.data));
-
-      router.push('/');
+      await axios.post('/api/post', doc).then(() => router.push('/'));
     }
   };
 
   const handleDiscard = () => {
-    client.delete(videoAsset?._id as string).then((res) => console.log(res));
-    setSavingPost(false);
-    setVideoAsset(undefined);
-    setFormValues(initForm);
+    client.delete(videoAsset?._id as string).then(() => {
+      setSavingPost(false);
+      setVideoAsset(undefined);
+      setFormValues(initForm);
+    });
   };
 
   const handleChange = (
@@ -163,12 +162,12 @@ const UploadTool: React.FC = () => {
                       comments: [],
                       likes: [],
                       postedBy: {
-                        _id: session?.user.id,
+                        _id: session?.user.id as string,
                         name: session?.user?.name as string,
                         image: session?.user?.image as string,
-                        username: session?.user.username,
+                        username: session?.user.username as string,
                       },
-                      userId: session?.user.id,
+                      userId: session?.user.id as string,
                       video: {
                         asset: {
                           _id: videoAsset._id,

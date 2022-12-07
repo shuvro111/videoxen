@@ -5,7 +5,7 @@ import { Video } from '../../../../types/types';
 import { client } from '../../../utils/client';
 
 type Data = {
-  video?: Video[] | SanityDocument<Record<string, any>>;
+  video?: Video[] | SanityDocument<Record<string, unknown>>;
   message?: string;
 };
 
