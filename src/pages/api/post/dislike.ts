@@ -1,3 +1,4 @@
+import { SanityDocument } from '@sanity/client';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { Video } from '../../../../types/types';
 import { client } from '../../../utils/client';
@@ -9,7 +10,7 @@ type Data = {
 
 const handler = async (
   req: NextApiRequest,
-  res: NextApiResponse<Data | any>
+  res: NextApiResponse<Data | SanityDocument<Record<string, unknown>>>
 ) => {
   if (req.method === 'PUT') {
     const { userId, postId } = req.body;

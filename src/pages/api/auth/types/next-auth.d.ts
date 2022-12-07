@@ -3,9 +3,9 @@ import 'next-auth';
 declare module 'next-auth' {
   interface Session {
     user: {
-      id: any;
+      id: string;
       name: string;
-      username: any;
+      username: string;
       email: string;
       image: string;
     };
