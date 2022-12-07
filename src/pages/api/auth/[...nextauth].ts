@@ -2,6 +2,8 @@ import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 import { createOrGetUser } from '../../../utils';
 
+console.log(process.env.NEXTAUTH_SECRET);
+
 export default NextAuth({
   // Configure one or more authentication providers
   providers: [
