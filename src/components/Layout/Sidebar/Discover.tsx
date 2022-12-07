@@ -8,9 +8,9 @@ const Discover: React.FC = () => {
   const { topic } = router.query;
 
   const activeTopicStyle =
-    'lg:border-2 transition-all lg:bg-primary-red lg:text-white lg:border-primary-red px-3 py-1 rounded lg:rounded-full flex gap-2 justify-center cursor-pointer text-primary-red';
+    'lg:border-2 transition-all lg:bg-primary-pink lg:text-white lg:border-primary-pink px-3 py-1 rounded lg:rounded-full flex gap-2 justify-center cursor-pointer text-primary-pink';
   const topicStyle =
-    'lg:border-2 transition-all hover:border-primary-red hover:text-primary-red lg:border-gray-300 px-3 py-1 rounded lg:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black';
+    'lg:border-2 transition-all hover:border-primary-pink hover:text-primary-pink lg:border-gray-300 px-3 py-1 rounded lg:rounded-full flex items-center gap-2 justify-center cursor-pointer text-black';
 
   return (
     <div className="xl:border-b-2 xl:border-gray-200 pb-6">

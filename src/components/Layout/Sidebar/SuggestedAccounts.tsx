@@ -31,7 +31,7 @@ const SuggestedAccounts: React.FC = () => {
                       <p className="text-base leading-none font-semibold">
                         {user.name}
                       </p>
-                      <HiBadgeCheck className="text-lg text-primary-red" />
+                      <HiBadgeCheck className="text-lg text-primary-pink" />
                     </div>
                     <span className="text-sm leading-none text-gray-400">
                       @{user.username}
@@ -40,7 +40,7 @@ const SuggestedAccounts: React.FC = () => {
                 </div>
               </Link>
 
-              <button className="font-bold text-primary-red leading-none cursor-pointer hidden lg:block">
+              <button className="font-bold text-primary-pink leading-none cursor-pointer hidden lg:block">
                 follow
               </button>
             </div>

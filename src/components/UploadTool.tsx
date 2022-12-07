@@ -141,7 +141,7 @@ const UploadTool: React.FC = () => {
                         Up to 10 minutes <br />
                         Less than 2 GB
                       </p>
-                      <p className="bg-primary-red text-center mt-8 rounded text-white text-md font-medium p-2 w-36 outline-none">
+                      <p className="bg-primary-pink text-center mt-8 rounded text-white text-md font-medium p-2 w-36 outline-none">
                         Select file
                       </p>
                     </div>
@@ -230,7 +230,7 @@ const UploadTool: React.FC = () => {
                       </button>
                       <button
                         type="submit"
-                        className="flex items-center gap-2 bg-primary-red py-2 px-8 rounded-full text-white font-semibold mt-4"
+                        className="flex items-center gap-2 bg-primary-pink py-2 px-8 rounded-full text-white font-semibold mt-4"
                       >
                         Upload <HiArrowUp />
                       </button>
