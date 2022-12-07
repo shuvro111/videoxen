@@ -21,7 +21,7 @@ const LoginhtmlForm = () => {
           Login
         </h2>
         <p className="leading-relaxed my-5 text-gray-600">
-          Please login to tiktik to follow other connect with other people and
+          Please login to Invideo to follow other connect with other people and
           interact.
         </p>
 
@@ -49,7 +49,7 @@ const LoginhtmlForm = () => {
         </div>
 
         <button
-          className="text-white bg-primary-red border-0 py-2 px-6 focus:outline-none hover:bg-primary-red rounded text-lg"
+          className="text-white bg-primary-pink border-0 py-2 px-6 focus:outline-none hover:bg-primary-pink rounded text-lg"
           onClick={handleSignIn}
         >
           Sign In
@@ -60,14 +60,14 @@ const LoginhtmlForm = () => {
         <button
           onClick={handleSignIn}
           type="button"
-          className="flex justify-center items-center py-2 px-4 gap-2 border-2 border-primary-red rounded text-primary-red hover:bg-primary-red hover:text-white ease-out duration-300  "
+          className="flex justify-center items-center py-2 px-4 gap-2 border-2 border-primary-pink rounded text-primary-pink hover:bg-primary-pink hover:text-white ease-out duration-300  "
         >
           <FaGoogle />
           Sign in with Google
         </button>
 
         <p className="text-xs text-gray-500 mt-3 text-center">
-          By signining up you accept the terms and conditions of tiktik
+          By signining up you accept the terms and conditions of Invideo
         </p>
       </div>
     </div>

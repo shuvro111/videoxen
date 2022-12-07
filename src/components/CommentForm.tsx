@@ -42,7 +42,7 @@ const CommentForm = ({
         />
         <button
           type="submit"
-          className="flex items-center gap-x-2 bg-primary-red py-2 px-4 rounded-full text-white text-sm font-semibold"
+          className="flex items-center gap-x-2 bg-primary-pink py-2 px-4 rounded-full text-white text-sm font-semibold"
         >
           <span className="hidden lg:block">Submit</span>
           <HiPaperAirplane />

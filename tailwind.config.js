@@ -19,7 +19,7 @@ module.exports = {
       },
       colors: {
         primary: {
-          red: '#FB2671',
+          pink: '#FB2671',
           blue: '#242d52',
         },
         light: {

@@ -77,7 +77,7 @@ const VideoDetails: React.FC<{ post: Video }> = ({ post }) => {
                         <p className="text-base leading-none font-semibold">
                           {video.postedBy.name}
                         </p>
-                        <HiBadgeCheck className="text-lg text-primary-red" />
+                        <HiBadgeCheck className="text-lg text-primary-pink" />
                       </div>
                       <span className="text-sm leading-none text-gray-400">
                         @{video.postedBy.username}
@@ -86,7 +86,7 @@ const VideoDetails: React.FC<{ post: Video }> = ({ post }) => {
                   </div>
                 </Link>
 
-                <button className="font-bold text-primary-red leading-none cursor-pointer">
+                <button className="font-bold text-primary-pink leading-none cursor-pointer">
                   follow
                 </button>
               </div>

@@ -49,7 +49,7 @@ const SearchResults = () => {
               <h4
                 className={`text-lg mt-10 pb-2 cursor-pointer ${
                   activeTab === 'videos'
-                    ? 'text-primary-red border-primary-red border-b'
+                    ? 'text-primary-pink border-primary-pink border-b'
                     : 'text-gray-900 border-b'
                 }`}
                 onClick={() => setActiveTab('videos')}
@@ -59,7 +59,7 @@ const SearchResults = () => {
               <h4
                 className={`text-lg mt-10 pb-2 border-b cursor-pointer ${
                   activeTab === 'liked'
-                    ? 'text-primary-red border-primary-red border-b'
+                    ? 'text-primary-pink border-primary-pink border-b'
                     : 'text-gray-900 border-b'
                 }`}
                 onClick={() => setActiveTab('liked')}
@@ -109,7 +109,7 @@ const SearchResults = () => {
                               <p className="text-base leading-none font-semibold">
                                 {user.name}
                               </p>
-                              <HiBadgeCheck className="text-lg text-primary-red" />
+                              <HiBadgeCheck className="text-lg text-primary-pink" />
                             </div>
                             <span className="text-sm leading-none text-gray-400">
                               @{user.username}
@@ -118,7 +118,7 @@ const SearchResults = () => {
                         </div>
                       </Link>
 
-                      <button className="font-bold text-primary-red leading-none cursor-pointer hidden lg:block">
+                      <button className="font-bold text-primary-pink leading-none cursor-pointer hidden lg:block">
                         follow
                       </button>
                     </div>

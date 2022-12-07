@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { HiLogout, HiOutlineSearch, HiPlus } from 'react-icons/hi';
 
-import Logo from '../../public/tiktik-logo.png';
+import Logo from '../../public/invideo-logo.svg';
 
 // interface INavbar {}
 
@@ -26,11 +26,11 @@ const Navbar: React.FC = () => {
   return (
     <div className="lg:w-3/5 lg:m-auto flex justify-between items-center border-b-2 border-gray-200 py-4">
       <Link href="/" passHref>
-        <div className="w-[120px] md:w-[150px]">
+        <div className="w-[120px] md:w-[150px] text">
           <Image
             src={Logo}
-            className="cursor-pointer"
-            alt="Tiktok"
+            className="cursor-pointer text-primary-pink"
+            alt="Invideo"
             layout="responsive"
           />
         </div>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
             </div>
           </Link>{' '}
           <Link href="/upload">
-            <button className="flex items-center gap-1 border-2 rounded-full px-4 py-1 text-primary-red border-primary-red lg:hover:bg-primary-red lg:hover:text-white ease-in-out duration-200">
+            <button className="flex items-center gap-1 border-2 rounded-full px-4 py-1 text-primary-pink border-primary-pink lg:hover:bg-primary-pink lg:hover:text-white ease-in-out duration-200">
               <HiPlus />
               <span>Upload</span>
             </button>
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => signOut()}
             type="button"
-            className="lg:flex lg:items-center lg:py-1 lg:px-4 lg:gap-2 lg:border-2 lg:border-primary-red lg:rounded-full text-primary-red lg:hover:bg-primary-red lg:hover:text-white ease-in-out duration-200  "
+            className="lg:flex lg:items-center lg:py-1 lg:px-4 lg:gap-2 lg:border-2 lg:border-primary-pink lg:rounded-full text-primary-pink lg:hover:bg-primary-pink lg:hover:text-white ease-in-out duration-200  "
           >
             <HiLogout />
             <span className="hidden lg:block">Logout</span>
@@ -85,7 +85,7 @@ const Navbar: React.FC = () => {
         <button
           onClick={() => signIn('google')}
           type="button"
-          className="flex items-center py-2 px-4 gap-2 border-2 border-primary-red rounded text-primary-red hover:bg-primary-red hover:text-white ease-out duration-300  "
+          className="flex items-center py-2 px-4 gap-2 border-2 border-primary-pink rounded text-primary-pink hover:bg-primary-pink hover:text-white ease-out duration-300  "
         >
           <FaGoogle />
           Sign in with Google

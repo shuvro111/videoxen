@@ -9,7 +9,7 @@ import SuggestedAccounts from './SuggestedAccounts';
 const Sidebar: React.FC = () => {
   const [showSidebar, setShowSidebar] = useState(true);
   const activeStyles =
-    'w-full flex gap-2 items-center justify-center lg:justify-start my-3 cursor-pointer font-semibold hover:text-primary-red text-primary-red';
+    'w-full flex gap-2 items-center justify-center lg:justify-start my-3 cursor-pointer font-semibold hover:text-primary-pink text-primary-pink';
 
   return (
     <div className="w-14 lg:w-8/12 lg:pr-6 flex lg:justify-between">

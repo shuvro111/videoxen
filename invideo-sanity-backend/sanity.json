@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "tiktok-sanity-backend"
+    "name": "invideo-sanity-backend"
   },
   "api": {
     "projectId": "timgydlh",
@@ -15,9 +15,7 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [

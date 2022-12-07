@@ -70,14 +70,14 @@ const ProfilePage = () => {
                   className={`font-medium title-font mt-4 text-lg flex items-center gap-x-1`}
                 >
                   {user?.name}
-                  <HiBadgeCheck className="text-lg text-primary-red" />
+                  <HiBadgeCheck className="text-lg text-primary-pink" />
                 </h2>
                 <span className="text-sm leading-none text-gray-400">
                   @{user?.username}
                 </span>
-                <div className="w-12 h-1 bg-primary-red rounded mt-2 mb-4"></div>
+                <div className="w-12 h-1 bg-primary-pink rounded mt-2 mb-4"></div>
                 <button
-                  className="text-white bg-primary-red border-0 py-2 px-6 focus:outline-none hover:bg-primary-red rounded-full text-sm"
+                  className="text-white bg-primary-pink border-0 py-2 px-6 focus:outline-none hover:bg-primary-pink rounded-full text-sm"
                   // onClick={() => {}}
                 >
                   Follow
@@ -85,7 +85,7 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left">
-              <p className="text-primary-red inline-flex items-center w-full">
+              <p className="text-primary-pink inline-flex items-center w-full">
                 <span className="text-center lg:text-left">Biography</span>
                 <svg
                   fill="none"
@@ -115,7 +115,7 @@ const ProfilePage = () => {
               <h4
                 className={`text-lg mt-10 pb-2 cursor-pointer ${
                   activeTab === 'videos'
-                    ? 'text-primary-red border-primary-red border-b'
+                    ? 'text-primary-pink border-primary-pink border-b'
                     : 'text-gray-900 border-b'
                 }`}
                 onClick={() => setActiveTab('videos')}
@@ -125,7 +125,7 @@ const ProfilePage = () => {
               <h4
                 className={`text-lg mt-10 pb-2 border-b cursor-pointer ${
                   activeTab === 'liked'
-                    ? 'text-primary-red border-primary-red border-b'
+                    ? 'text-primary-pink border-primary-pink border-b'
                     : 'text-gray-900 border-b'
                 }`}
                 onClick={() => setActiveTab('liked')}
