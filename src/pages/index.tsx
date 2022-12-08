@@ -30,9 +30,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { data } = await axios.get(
       `${process.env.BASE_URL}/api/discover/${query.topic}`
     );
+    console.log(data);
     videos = data.videos;
   } else {
     const { data } = await axios.get('${process.env.BASE_URL}/api/post');
+    console.log(data);
     videos = data.videos;
   }
 
