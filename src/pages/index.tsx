@@ -3,6 +3,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
 import { Video } from '../../types/types';
 import Feed from '../components/Layout/Feed';
+import { BASE_URL } from '../utils';
 
 interface IHome {
   videos: Video[];
@@ -25,16 +26,11 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   let videos: Video[] = [];
-  console.log(process.env.BASE_URL);
   if (query.topic) {
-    const { data } = await axios.get(
-      `${process.env.BASE_URL}/api/discover/${query.topic}`
-    );
-    console.log(data);
+    const { data } = await axios.get(`${BASE_URL}/api/discover/${query.topic}`);
     videos = data.videos;
   } else {
-    const { data } = await axios.get('${process.env.BASE_URL}/api/post');
-    console.log(data);
+    const { data } = await axios.get('${BASE_URL}/api/post');
     videos = data.videos;
   }
 
