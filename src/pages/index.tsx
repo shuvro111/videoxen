@@ -25,6 +25,7 @@ export default Home;
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   let videos: Video[] = [];
+  console.log(process.env.BASE_URL);
   if (query.topic) {
     const { data } = await axios.get(
       `${process.env.BASE_URL}/api/discover/${query.topic}`
