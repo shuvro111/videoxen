@@ -27,11 +27,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   let videos: Video[] = [];
   if (query.topic) {
     const { data } = await axios.get(
-      `http://localhost:3000/api/discover/${query.topic}`
+      `${process.env.BASE_URL}/api/discover/${query.topic}`
     );
     videos = data.videos;
   } else {
-    const { data } = await axios.get('http://localhost:3000/api/post');
+    const { data } = await axios.get('${process.env.BASE_URL}/api/post');
     videos = data.videos;
   }
 
