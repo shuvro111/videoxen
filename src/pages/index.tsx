@@ -27,10 +27,10 @@ export default Home;
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   let videos: Video[] = [];
   if (query.topic) {
-    const { data } = await axios.get(`${BASE_URL}/api/discover/${query.topic}`);
+    const { data } = await axios.get(`${BASE_URL}/api/post/${query.topic}`);
     videos = data.videos;
   } else {
-    const { data } = await axios.get('${BASE_URL}/api/post');
+    const { data } = await axios.get(`${BASE_URL}/api/post`);
     videos = data.videos;
   }
 
