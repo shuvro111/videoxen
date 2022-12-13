@@ -19,7 +19,6 @@ Videoxen is a short form video uploading platform which allows user to register 
 &nbsp; ✅ Next JS<br />
 &nbsp; ✅ Tailwind CSS<br />
 &nbsp; ✅ React Context API <br />
-&nbsp; ✅ TypeORM<br />
 
 ### 🔐 Authentication
 
