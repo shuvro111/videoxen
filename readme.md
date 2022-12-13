@@ -27,11 +27,15 @@ Videoxen is a short form video uploading platform which allows user to register 
 
 ## Preview
 
-![Feed](https://user-images.githubusercontent.com/55589114/207271247-2c49536b-94bb-4643-b2ec-76208cbfbd78.png)
+#### Video Feed
+
+![Feed](https://user-images.githubusercontent.com/55589114/207325402-d021a45b-f54f-4a4b-869f-7d0f1766cad9.png)
 
 <br/>
 
-![Video Details](https://user-images.githubusercontent.com/55589114/207275497-1d39f0c4-597d-46a1-99c9-6d2cde5a8963.png)
+#### Video Details
+
+![Video Details](https://user-images.githubusercontent.com/55589114/207325678-ce877fb8-7a0f-46c8-9433-72ea4c88c885.png)
 
 #### This project is inspired by this tutorial: [View On YouTube](https://youtu.be/CcBHZ0t2Qwc)
 
