@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { HiLogout, HiOutlineSearch, HiPlus } from 'react-icons/hi';
 
-import Logo from '../../public/videoxen-logo.svg';
+import Logo from '../../public/videoxen-logo.png';
 
 // interface INavbar {}
 
