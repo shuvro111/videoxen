@@ -47,11 +47,11 @@ export const footerList1 = [
   'Creator Directory',
 ];
 export const footerList2 = [
-  'Invideo for Good',
+  'Videoxen for Good',
   'Advertise',
   'Developers',
   'Transparency',
-  'Invideo Rewards',
+  'Videoxen Rewards',
 ];
 export const footerList3 = [
   'Help',

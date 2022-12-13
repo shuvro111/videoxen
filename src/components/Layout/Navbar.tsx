@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { HiLogout, HiOutlineSearch, HiPlus } from 'react-icons/hi';
 
-import Logo from '../../public/invideo-logo.svg';
+import Logo from '../../public/videoxen-logo.svg';
 
 // interface INavbar {}
 
@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
           <Image
             src={Logo}
             className="cursor-pointer text-primary-pink"
-            alt="Invideo"
+            alt="Videoxen"
             layout="responsive"
           />
         </div>

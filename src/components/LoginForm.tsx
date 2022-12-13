@@ -21,7 +21,7 @@ const LoginhtmlForm = () => {
           Login
         </h2>
         <p className="leading-relaxed my-5 text-gray-600">
-          Please login to Invideo to follow other connect with other people and
+          Please login to Videoxen to follow other connect with other people and
           interact.
         </p>
 
@@ -67,7 +67,7 @@ const LoginhtmlForm = () => {
         </button>
 
         <p className="text-xs text-gray-500 mt-3 text-center">
-          By signining up you accept the terms and conditions of Invideo
+          By signining up you accept the terms and conditions of Videoxen
         </p>
       </div>
     </div>

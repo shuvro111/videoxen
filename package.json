@@ -1,7 +1,7 @@
 {
-  "name": "next-ts-tailwind-starter",
-  "description": "NextJS Project Boilerplate With Typescript,Tailwind, Husky, Commitlint",
-  "repository": "https://github.com/shuvro-skytech/next-ts-tailwind-stater.git",
+  "name": "Videoxen",
+  "description": "A Short Form Video Platform",
+  "repository": "https://github.com/shuvro111/videoxen.git",
   "author": "Shuvro Sarkar",
   "license": "MIT",
   "version": "0.1.0",
